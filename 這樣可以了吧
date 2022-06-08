@@ -32,21 +32,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var t1='';
-  var t2='';
-  var t3='';
-  var t4='';
-  var t5='';
-  var t6='';
-  bool ava=true;
+  var title=['','','','','',''];
+  var infro=['','','','','',''];
+  int empty=0;
+  bool ava=false;
+  bool flag=false;
 
   final TextEditingController newtitle=new TextEditingController();
+  final TextEditingController newinfro=new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.upload_rounded),
+              onPressed:() {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const update())
+                );
+              })
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -56,149 +64,223 @@ class _MyHomePageState extends State<MyHomePage> {
               controller: newtitle,
               decoration: InputDecoration(hintText:'new work...' ),
             ),
+            TextField(
+              controller: newinfro,
+              decoration: InputDecoration(hintText: 'new infro...'),
+            ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    if(t6!=''){
-                      t1=t6;
-                      t6='';
-                    }else if(t5!=''){
-                      t1=t5;
-                      t5='';
-                    }else if(t4!=''){
-                      t1=t4;
-                      t4='';
-                    }else if(t3!=''){
-                      t1=t3;
-                      t3='';
-                    }else if(t2!=''){
-                      t1=t2;
-                      t2='';
-                    }else{
-                      t1='';
-                    }
-                  });
-                },
-                child:Text(t1,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        for(int j=5;j>0;j--){
+                          if(title[j]!=''){
+                            title[0]=title[j];
+                            infro[0]=infro[j];
+                            title[j]='';
+                            infro[j]='';
+                            flag=true;
+                            break;
+                          }
+                        }
+                        if(flag==false){
+                          title[0]='';
+                          infro[0]='';
+                        }
+                        flag=false;
+                      });
+                    },
+                    child:Text(title[0],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[0],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    if(t6!=''){
-                      t2=t6;
-                      t6='';
-                    }else if(t5!=''){
-                      t2=t5;
-                      t5='';
-                    }else if(t4!=''){
-                      t2=t4;
-                      t4='';
-                    }else if(t3!=''){
-                      t2=t3;
-                      t3='';
-                    }else{
-                      t2='';
-                    }
-                  });
-                },
-                child:Text(t2,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        for(int j=5;j>1;j--){
+                            if(title[j]!=''){
+                              title[1]=title[j];
+                              infro[1]=infro[j];
+                              title[j]='';
+                              infro[j]='';
+                              flag=true;
+                              break;
+                            }
+                        }
+                        if(flag==false){
+                          title[1]='';
+                          infro[1]='';
+                        }
+                        flag=false;
+                      });
+                    },
+                    child:Text(title[1],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[1],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    if(t6!=''){
-                      t3=t6;
-                      t6='';
-                    }else if(t5!=''){
-                      t3=t5;
-                      t5='';
-                    }else if(t4!=''){
-                      t3=t4;
-                      t4='';
-                    }else{
-                      t3='';
-                    }
-                  });
-                },
-                child:Text(t3,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        for(int j=5;j>2;j--){
+                          if(title[j]!=''){
+                            title[2]=title[j];
+                            infro[2]=infro[j];
+                            title[j]='';
+                            infro[j]='';
+                            flag=true;
+                            break;
+                          }
+                        }
+                        if(flag==false){
+                          title[2]='';
+                          infro[2]='';
+                        }
+                        flag=false;
+                      });
+                    },
+                    child:Text(title[2],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[2],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    if(t6!=''){
-                      t4=t6;
-                      t6='';
-                    }else if(t5!=''){
-                      t4=t5;
-                      t5='';
-                    }else{
-                      t4='';
-                    }
-                  });
-                },
-                child:Text(t4,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        for(int j=5;j>3;j--){
+                          if(title[j]!=''){
+                            title[3]=title[j];
+                            infro[3]=infro[j];
+                            title[j]='';
+                            infro[j]='';
+                            flag=true;
+                            break;
+                          }
+                        }
+                        if(flag==false){
+                          title[3]='';
+                          infro[3]='';
+                        }
+                        flag=false;
+                      });
+                    },
+                    child:Text(title[3],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[3],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    if(t6!=''){
-                      t5=t6;
-                      t6='';
-                    }else{
-                      t5='';
-                    }
-                  });
-                },
-                child:Text(t5,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        for(int j=5;j>4;j--){
+                          if(title[j]!=''){
+                            title[4]=title[j];
+                            infro[4]=infro[j];
+                            title[j]='';
+                            infro[j]='';
+                            flag=true;
+                            break;
+                          }
+                        }
+                        if(flag==false){
+                          title[4]='';
+                          infro[4]='';
+                        }
+                        flag=false;
+                      });
+                    },
+                    child:Text(title[4],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[4],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child:TextButton(
-                onPressed:(){
-                  setState(() {
-                    t6='';
-                  });
-                },
-                child:Text(t6,
-                  style: TextStyle(
-                    fontSize: 20,
+              child:Row(
+                children: [
+                  TextButton(
+                    onPressed:(){
+                      setState(() {
+                        title[5]='';
+                        infro[5]='';
+                      });
+                    },
+                    child:Text(title[5],
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign:TextAlign.start,
+                    ),
                   ),
-                  textAlign:TextAlign.start,
-                ),
+                  Text(infro[5],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -206,31 +288,45 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed:(){
           setState(() {
-            if(newtitle.text==t1 || newtitle.text==t2||newtitle.text==t3||newtitle.text==t4||newtitle.text==t5||newtitle.text==t6||newtitle.text.isNotEmpty==false){
-              ava=false;
-            }else{
-              ava=true;
+            for(int i=0;i<6;i++){
+              if(ava==false && title[i]==''){
+                ava=true;
+                empty=i;
+                break;
+              }
             }
             if(ava==true){
-              if(t1==''){
-                t1=newtitle.text;
-              }else if(t2==''){
-                t2=newtitle.text;
-              }else if(t3==''){
-                t3=newtitle.text;
-              }else if(t4==''){
-                t4=newtitle.text;
-              }else if(t5==''){
-                t5=newtitle.text;
-              }else if(t6==''){
-                t6=newtitle.text;
-              }
+              title[empty]=newtitle.text;
+              infro[empty]=newinfro.text;
               newtitle.text='';
+              newinfro.text='';
+              empty=0;
+              ava=false;
             }
           });
         },
         child: Icon(Icons.add),
         ),
       );
+  }
+}
+class update extends StatelessWidget {
+  const update({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+        title: const Text('New function'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            child: Text('6/8,add infro function'),
+          ),
+        ],
+      ),
+    );
   }
 }
